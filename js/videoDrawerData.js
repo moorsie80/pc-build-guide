@@ -5,7 +5,7 @@
     'step-1-prep': {
       durationSec: 90,
       motionSubject: 'Motherboard Box Test-Bench & Corsair 4000D Panel Strip',
-      defaultVideoUrl: 'https://www.youtube.com/watch?v=BL4DCEp7blY',
+      defaultVideoUrl: 'https://www.youtube.com/watch?v=rj0zYt8YwzE',
       coachingNote:
         'Building the core CPU, RAM, and M.2 SSD on the cardboard motherboard box first prevents cramped knuckles inside the chassis.',
       commonMistake:
