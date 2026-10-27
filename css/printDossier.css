@@ -1,0 +1,246 @@
+/* Phase 4: Pre-Power-On Sanity Check Modal & A4 Print Dossier */
+.sanity-gate-prompt {
+  margin-top: 0.9rem;
+  padding: 0.9rem 1.05rem;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.14), rgba(56, 189, 248, 0.12));
+  border: 1px solid rgba(16, 185, 129, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+}
+
+.sanity-gate-text strong {
+  display: block;
+  color: #a7f3d0;
+  font-size: 0.92rem;
+  margin-bottom: 0.2rem;
+}
+
+.sanity-gate-text span {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.sanity-modal-card {
+  max-width: 780px;
+  width: 95%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.sanity-meter-box {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+.sanity-meter-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.84rem;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.sanity-cleared-banner {
+  background: rgba(16, 185, 129, 0.18);
+  border: 1px solid #10b981;
+  color: #d1fae5;
+  padding: 0.7rem 0.95rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+}
+
+.sanity-cleared-banner.is-hidden {
+  display: none;
+}
+
+.sanity-check-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.sanity-item-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 0.62rem 0.8rem;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.sanity-item-card:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+}
+
+.sanity-item-card.is-checked {
+  border-color: rgba(16, 185, 129, 0.55);
+  background: rgba(16, 185, 129, 0.1);
+}
+
+.sanity-item-card input[type="checkbox"] {
+  width: 1.1rem;
+  height: 1.1rem;
+  margin-top: 0.15rem;
+  accent-color: #10b981;
+  cursor: pointer;
+}
+
+.sanity-item-title {
+  display: block;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+
+.sanity-item-desc {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  line-height: 1.38;
+}
+
+/* Hidden on screen; visible only when printing/exporting PDF */
+.print-dossier-sheet {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 11mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    font-size: 10pt;
+    line-height: 1.38;
+  }
+
+  .top-header,
+  #locker-container,
+  .modal-backdrop,
+  .toast-banner,
+  .guide-progress-card,
+  .bp-zoom-btn,
+  .bp-hint-pill,
+  .video-drawer-tabs,
+  .motion-canvas-wrap,
+  .motion-controls-bar,
+  [data-pane="embed"],
+  .sanity-gate-prompt {
+    display: none !important;
+  }
+
+  .app-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .print-dossier-sheet {
+    display: block !important;
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .print-dossier-header {
+    border-bottom: 2px solid #0f172a;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .print-manifest-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 0.9rem;
+    font-size: 8.5pt;
+  }
+
+  .print-manifest-table th,
+  .print-manifest-table td {
+    border: 1px solid #cbd5e1;
+    padding: 4px 6px;
+    text-align: left;
+    color: #0f172a !important;
+  }
+
+  .print-manifest-table th {
+    background: #f1f5f9 !important;
+    font-weight: 700;
+  }
+
+  .print-sanity-box {
+    border: 1.5px solid #0f172a;
+    border-radius: 6px;
+    padding: 8px 10px;
+    background: #f8fafc !important;
+  }
+
+  .print-sanity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 12px;
+    font-size: 8pt;
+  }
+
+  #guide-section {
+    display: block !important;
+    margin-top: 0 !important;
+  }
+
+  .guide-step-card {
+    background: #ffffff !important;
+    border: 1.5px solid #94a3b8 !important;
+    color: #0f172a !important;
+    margin-bottom: 10px !important;
+    padding: 10px 12px !important;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  .step-title, .step-instructions li, .keyframe-label {
+    color: #0f172a !important;
+  }
+
+  .hardware-warning-box, .mistake-badge-box {
+    background: #fffbeb !important;
+    border: 1px solid #d97706 !important;
+    color: #78350f !important;
+  }
+
+  .blueprint-card, .blueprint-svg-stage {
+    background: #0f172a !important;
+    border-color: #334155 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .video-tip-drawer, .video-tip-body {
+    display: block !important;
+    background: #f8fafc !important;
+    border-color: #cbd5e1 !important;
+  }
+}

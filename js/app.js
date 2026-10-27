@@ -135,9 +135,11 @@
             ${G.renderBlueprintSlot(step, appState)}
             ${G.renderVideoDrawer(step, appState)}
           </div>
+          ${step.stepNum === 9 && G.renderStep9SanityPrompt ? G.renderStep9SanityPrompt(appState) : ''}
         </article>`;
     }).join('');
     G.initMotionCanvases(guideStepsEl);
+    if (G.renderPrintDossier) G.renderPrintDossier(appState);
     updateGuideProgress(steps);
   }
 
@@ -182,6 +184,7 @@
     });
     G.bindBlueprintEvents(guideStepsEl);
     G.bindVideoDrawerEvents(guideStepsEl, () => appState, () => G.saveState(appState), showToast);
+    if (G.initSanityAndPrint) G.initSanityAndPrint(() => appState, () => G.saveState(appState), renderBuildGuide, showToast);
 
     document.getElementById('btn-open-json').addEventListener('click', () => {
       jsonTextareaEl.value = JSON.stringify(G.exportRigJsonObject(appState), null, 2);

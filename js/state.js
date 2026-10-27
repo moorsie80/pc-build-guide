@@ -47,6 +47,7 @@
       flexBudgetGBP: G.DEFAULT_RIG_JSON.flexBudgetGBP,
       parts,
       completedSteps: {},
+      sanityChecks: {},
       customVideos: {
         'step-6-aio-front': 'https://www.youtube.com/watch?v=FtJ4P2Uo5no'
       },
@@ -106,6 +107,7 @@
         }
       }
       base.completedSteps = parsed.completedSteps || {};
+      base.sanityChecks = parsed.sanityChecks || {};
       base.customVideos = {
         'step-6-aio-front': 'https://www.youtube.com/watch?v=FtJ4P2Uo5no',
         ...(parsed.customVideos || {})
