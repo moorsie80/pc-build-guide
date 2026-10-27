@@ -12,8 +12,8 @@
         'Never place the ASUS TUF GAMING B650-PLUS WIFI on top of its shiny anti-static plastic bag—the exterior of ESD bags can conduct static charges. Always rest the board directly on the bare cardboard box.',
       keyframes: [
         {
-          sec: 15,
-          timeLabel: '00:15',
+          sec: 0,
+          timeLabel: '00:00',
           title: 'Cardboard Box Bench Setup',
           detail: 'Lay the ASUS TUF B650-PLUS cardboard box flat and place the motherboard on top with the AM5 socket facing you.'
         },
@@ -41,8 +41,8 @@
         'Do NOT manually pry off the black plastic AM5 socket cover before installing the Ryzen 7 7800X3D—doing so risks dropping tools onto the 1,718 delicate gold socket pins.',
       keyframes: [
         {
-          sec: 15,
-          timeLabel: '00:15',
+          sec: 0,
+          timeLabel: '00:00',
           title: 'Aligning the AM5 Gold Triangle',
           detail: 'Match the gold Pin 1 triangle on the top-left corner of the Ryzen 7 7800X3D with the embossed triangle on the socket frame.'
         },
@@ -70,8 +70,8 @@
         'Failing to seat DDR5 sticks until the top latch audibly clicks shut, or placing sticks in slots A1/B1 instead of the mandatory primary DIMM_A2 & DIMM_B2 (2nd and 4th from CPU).',
       keyframes: [
         {
-          sec: 15,
-          timeLabel: '00:15',
+          sec: 0,
+          timeLabel: '00:00',
           title: 'Unlock DIMM_A2 & DIMM_B2 Latches',
           detail: 'Flip open the top retention clips on the 2nd and 4th grey DDR5 slots (DIMM_A2 and DIMM_B2) away from the CPU socket.'
         },
@@ -99,8 +99,8 @@
         'Removing or losing the stock AM5 rear metal backplate, or installing the L and R ARCTIC brackets upside-down so the cold plate shifts away from the lower CCD hotspot.',
       keyframes: [
         {
-          sec: 15,
-          timeLabel: '00:15',
+          sec: 0,
+          timeLabel: '00:00',
           title: 'Remove Stock Plastic AM5 Hooks',
           detail: 'Unscrew the 4 black plastic hook brackets around the socket while keeping the factory steel AM5 backplate in place.'
         },
@@ -128,8 +128,8 @@
         'Mounting top/rear fans with their plastic rear stator struts facing inside the case (which makes them fight the front radiator intake) or plugging each fan into random headers instead of using PST daisy-chaining.',
       keyframes: [
         {
-          sec: 15,
-          timeLabel: '00:15',
+          sec: 0,
+          timeLabel: '00:00',
           title: 'Seat Motherboard on 9 ATX Standoffs',
           detail: 'Lower the ASUS TUF B650-PLUS into the Corsair 4000D, align the rear I/O shield, and fasten the 9 mounting screws.'
         },
@@ -157,8 +157,8 @@
         'Forgetting to peel the clear protective plastic warning film off the copper AIO cold plate before mounting, or trying to top-mount the 38mm-thick 280mm radiator where it hits the tall B650 VRM heatsinks.',
       keyframes: [
         {
-          sec: 15,
-          timeLabel: '00:15',
+          sec: 0,
+          timeLabel: '00:00',
           title: 'Peel Cold Plate Film & Select PWM Cable',
           detail: 'Peel the protective film off the copper base and plug either the All-in-One PWM cable or 3-way splitter into the pump block.'
         },
@@ -186,8 +186,8 @@
         'Forcing an 8-pin PCIe GPU cable into the top-left 8-pin EPS CPU header (or mixing modular cables from a different PSU brand), and leaving the 24-pin ATX latch half-unclipped.',
       keyframes: [
         {
-          sec: 15,
-          timeLabel: '00:15',
+          sec: 0,
+          timeLabel: '00:00',
           title: 'Pre-Connect Type-4 Modular Cables',
           detail: 'Snap 24-pin ATX, 8+4-pin CPU EPS, and PCIe GPU power cables into the Corsair RM850x before sliding it into the shroud.'
         },
@@ -215,8 +215,8 @@
         'Not pushing the 12VHPWR / PCIe power connector 100% flush until zero gold contact pins are visible, or forgetting to screw down the rear PCIe metal bracket thumbscrews.',
       keyframes: [
         {
-          sec: 15,
-          timeLabel: '00:15',
+          sec: 0,
+          timeLabel: '00:00',
           title: 'Remove Slot Covers #2 & #3 & Open Latch',
           detail: 'Unscrew the two rear expansion slot covers aligned with the top silver-armored PCIEX16(G4) slot and open the slot clip.'
         },
@@ -244,8 +244,8 @@
         'Plugging the Samsung 28" 4K monitor DisplayPort cable into the top vertical motherboard I/O instead of the horizontal RTX 4070 SUPER GPU ports (which bypasses your dedicated graphics card), or forgetting to enable AMD EXPO and Windows 144Hz refresh rate.',
       keyframes: [
         {
-          sec: 15,
-          timeLabel: '00:15',
+          sec: 0,
+          timeLabel: '00:00',
           title: 'Plug DisplayPort Directly Into RTX 4070 SUPER',
           detail: 'Connect the Samsung Odyssey G70B DisplayPort 1.4 cable to the horizontal GPU port and plug in the G915 TKL & G502 X receivers.'
         },
