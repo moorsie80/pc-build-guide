@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Custom PC Build Guide Generator — Phase 1</title>
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+  <header class="top-header">
+    <div class="app-container header-inner">
+      <div class="brand-block">
+        <div class="brand-logo" aria-hidden="true">🛠️</div>
+        <div>
+          <h1 class="brand-title">Custom PC Build Guide Generator</h1>
+          <p class="brand-subtitle">Phase 1 · 12-Part Rig Locker &amp; Tailored Step-by-Step Assembly Engine</p>
+        </div>
+      </div>
+
+      <div class="header-metrics-actions">
+        <div class="metric-pill">
+          <span class="metric-label">Running Total (£ GBP)</span>
+          <span class="metric-value" id="total-price">£2,154.35</span>
+        </div>
+        <div class="metric-pill">
+          <span class="metric-label">Locker Status</span>
+          <span class="metric-value" id="parts-count" style="color: var(--accent-cyan);">12 / 12 Parts Configured</span>
+        </div>
+        <button type="button" class="btn btn-secondary" id="btn-load-default-rig">
+          <span>🚀 Load My AM5 + RTX 4070 Super Rig (£2,154.35)</span>
+        </button>
+        <button type="button" class="btn btn-secondary" id="btn-open-json">
+          <span>{ } Quick Import JSON</span>
+        </button>
+        <button type="button" class="btn btn-primary" id="btn-generate-guide">
+          <span>⚡ Generate Tailored Build Guide</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-container">
+    <section id="locker-container" aria-labelledby="locker-heading">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="locker-heading">My Rig Parts Locker</h2>
+          <p class="section-desc">
+            Edit Make, Model, Key Specs, Price (£ GBP), and clickable Amazon.co.uk URLs across all 12 categories. Changes save automatically to browser localStorage.
+          </p>
+        </div>
+        <button type="button" class="btn btn-ghost" id="btn-clear-all">Clear All Cards</button>
+      </div>
+
+      <h3 class="locker-subsection-title">
+        <span>Core Build</span>
+        <span class="locker-subsection-pill">Parts 01–08 &amp; 12 · 9 Components</span>
+      </h3>
+      <div class="parts-grid" id="core-parts-grid"></div>
+
+      <h3 class="locker-subsection-title">
+        <span>Peripherals &amp; Display</span>
+        <span class="locker-subsection-pill">Parts 09–11 · 3 Components</span>
+      </h3>
+      <div class="parts-grid" id="peripherals-parts-grid"></div>
+    </section>
+
+    <section class="guide-section is-hidden" id="guide-section" aria-labelledby="guide-heading">
+      <div class="section-header">
+        <div>
+          <h2 class="section-title" id="guide-heading">Tailored Step-by-Step Assembly &amp; BIOS Guide</h2>
+          <p class="section-desc">
+            Generated dynamically from your active Make, Model, and Key Specs—complete with hardware-specific warnings, Phase 2 SVG Blueprint slots, and Phase 3 Video Tip drawers.
+          </p>
+        </div>
+      </div>
+
+      <div class="guide-progress-card">
+        <span id="guide-progress-text" style="font-weight: 600; font-size: 0.9rem;">0 of 9 Assembly Steps Completed (0%)</span>
+        <div class="progress-track" aria-hidden="true">
+          <div class="progress-fill" id="guide-progress-bar"></div>
+        </div>
+      </div>
+
+      <div class="guide-steps-list" id="guide-steps"></div>
+    </section>
+  </main>
+
+  <!-- Quick Import JSON Modal -->
+  <div class="modal-backdrop is-hidden" id="json-modal" role="dialog" aria-modal="true" aria-labelledby="json-modal-title">
+    <div class="modal-card">
+      <div class="section-header" style="margin-bottom: 0.5rem;">
+        <div>
+          <h2 class="section-title" id="json-modal-title">Quick Import JSON / Inspect Rig Dataset</h2>
+          <p class="section-desc">Paste a JSON parts object or array below to populate your 12-part locker.</p>
+        </div>
+        <button type="button" class="btn btn-ghost" id="btn-close-json">✕ Close</button>
+      </div>
+
+      <textarea id="json-textarea" class="paste-textarea" spellcheck="false"></textarea>
+
+      <div class="modal-footer">
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
+          <button type="button" class="btn btn-secondary" id="btn-fill-default-json">Load Default £2,154.35 JSON Template</button>
+          <span id="json-status" style="font-size: 0.8rem; color: var(--accent-cyan);"></span>
+        </div>
+        <button type="button" class="btn btn-primary" id="btn-apply-json">Apply JSON to Locker</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-banner" id="toast-banner" role="status" aria-live="polite"></div>
+
+  <script defer src="js/defaultRig.js"></script>
+  <script defer src="js/state.js"></script>
+  <script defer src="js/guide.js"></script>
+  <script defer src="js/app.js"></script>
+</body>
+</html>
