@@ -88,8 +88,8 @@
               <div class="motion-canvas-wrap"><canvas class="motion-canvas" width="660" height="178" data-motion-canvas="${step.id}"></canvas></div>
               <div class="motion-controls-bar">
                 <button type="button" class="motion-btn" data-motion-play="${step.id}">▶ Play</button>
-                <input type="range" class="motion-scrubber" min="0" max="90" step="0.5" value="15" data-motion-scrub="${step.id}" aria-label="Scrub motion timeline" />
-                <span class="motion-timecode" data-motion-time="${step.id}">00:15 / 01:30</span>
+                <input type="range" class="motion-scrubber" min="0" max="90" step="0.5" value="0" data-motion-scrub="${step.id}" aria-label="Scrub motion timeline" />
+                <span class="motion-timecode" data-motion-time="${step.id}">00:00 / 01:30</span>
                 <button type="button" class="motion-btn is-active" data-motion-loop="${step.id}">🔁 Loop: ON</button>
               </div>
               <div class="keyframe-grid">
@@ -139,7 +139,7 @@
     container.querySelectorAll('.video-tip-drawer').forEach((drawer) => {
       const stepId = drawer.getAttribute('data-step');
       const stepNum = Number(drawer.getAttribute('data-step-num') || 1);
-      const pState = { stepId, stepNum, timeSec: 15, playing: false, loop: true, lastTs: 0, rafId: 0 };
+      const pState = { stepId, stepNum, timeSec: 0, playing: false, loop: true, lastTs: 0, rafId: 0 };
       players.set(stepId, pState);
       syncDrawerUI(drawer, pState);
     });
@@ -184,7 +184,7 @@
       if (kfBtn) {
         const p = players.get(kfBtn.getAttribute('data-step')), drawer = kfBtn.closest('.video-tip-drawer');
         if (!p) return;
-        p.timeSec = Number(kfBtn.getAttribute('data-keyframe-seek') || 15);
+        p.timeSec = Number(kfBtn.getAttribute('data-keyframe-seek') || 0);
         syncDrawerUI(drawer, p);
         return;
       }
