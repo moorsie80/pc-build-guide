@@ -47,6 +47,9 @@
       flexBudgetGBP: G.DEFAULT_RIG_JSON.flexBudgetGBP,
       parts,
       completedSteps: {},
+      customVideos: {
+        'step-6-aio-front': 'https://www.youtube.com/watch?v=FtJ4P2Uo5no'
+      },
       guideGenerated: false,
       lastUpdated: null
     };
@@ -103,6 +106,10 @@
         }
       }
       base.completedSteps = parsed.completedSteps || {};
+      base.customVideos = {
+        'step-6-aio-front': 'https://www.youtube.com/watch?v=FtJ4P2Uo5no',
+        ...(parsed.customVideos || {})
+      };
       base.guideGenerated = Boolean(parsed.guideGenerated);
       base.lastUpdated = parsed.lastUpdated || null;
       if (G.countPopulatedParts(base) === 0) {

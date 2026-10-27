@@ -133,18 +133,11 @@
           </div>
           <div class="phase-placeholders-grid">
             ${G.renderBlueprintSlot(step, appState)}
-            <details class="video-tip-drawer" data-phase="3" data-step="${step.id}">
-              <summary class="video-tip-summary">
-                <span><span class="slot-pill phase-3-pill" style="margin-right:0.45rem;">Phase 3</span>🎬 Watch Video Tip: ${escapeHtml(step.videoTip.title)}</span>
-                <span class="slot-duration">▶ ${escapeHtml(step.videoTip.duration)} ▾</span>
-              </summary>
-              <div class="video-tip-body">
-                <p><strong>Video Tip Drawer Slot (Phase 3):</strong> ${escapeHtml(step.videoTip.summary)}</p>
-              </div>
-            </details>
+            ${G.renderVideoDrawer(step, appState)}
           </div>
         </article>`;
     }).join('');
+    G.initMotionCanvases(guideStepsEl);
     updateGuideProgress(steps);
   }
 
@@ -188,6 +181,7 @@
       updateGuideProgress(G.buildGuideSteps(appState));
     });
     G.bindBlueprintEvents(guideStepsEl);
+    G.bindVideoDrawerEvents(guideStepsEl, () => appState, () => G.saveState(appState), showToast);
 
     document.getElementById('btn-open-json').addEventListener('click', () => {
       jsonTextareaEl.value = JSON.stringify(G.exportRigJsonObject(appState), null, 2);
