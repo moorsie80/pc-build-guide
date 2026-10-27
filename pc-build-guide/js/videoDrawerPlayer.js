@@ -15,7 +15,7 @@
     if (/\.(mp4|webm|ogg)(\?.*)?$/i.test(url)) return `<video class="video-embed-frame" src="${esc(url)}" controls preload="metadata"></video>`;
     const ytId = extractYouTubeId(url);
     return ytId
-      ? `<iframe class="video-embed-frame" src="https://www.youtube-nocookie.com/embed/${esc(ytId)}?rel=0" title="Hardware Video Tutorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
+      ? `<iframe class="video-embed-frame" src="https://www.youtube.com/embed/${esc(ytId)}?rel=0" title="Hardware Video Tutorial" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`
       : `<div class="coaching-note-box">Saved custom link: <a href="${esc(url)}" target="_blank" rel="noopener noreferrer" style="color:#38bdf8;">${esc(url)} ↗</a></div>`;
   }
 
@@ -38,23 +38,9 @@
     ctx.fillText(`STEP 0${stepNum} MOTION SIM · KEYFRAME ${kf.timeLabel}`, 20, 29);
     ctx.fillStyle = '#a7f3d0'; ctx.fillText(`PHASE ${phaseIdx + 1}/3 (${Math.round((timeSec / 90) * 100)}%)`, w - 155, 29);
 
-    ctx.strokeStyle = '#334155'; ctx.fillStyle = '#0f172a'; ctx.lineWidth = 2;
-    ctx.fillRect(48, 54, 290, 104); ctx.strokeRect(48, 54, 290, 104);
-
-    const targetX = 162, targetY = 82;
-    ctx.strokeStyle = phaseIdx === 2 ? '#10b981' : '#f59e0b';
-    ctx.setLineDash([4, 3]); ctx.strokeRect(targetX, targetY, 68, 48); ctx.setLineDash([]);
-
-    const modX = targetX + (phaseIdx === 0 ? (1 - localPct) * -65 : 0);
-    const modY = targetY + (phaseIdx === 0 ? -18 * (1 - localPct) : phaseIdx === 1 ? (1 - localPct) * -14 : 0);
-    ctx.fillStyle = phaseIdx === 2 ? 'rgba(16, 185, 129, 0.24)' : 'rgba(56, 189, 248, 0.22)';
-    ctx.strokeStyle = phaseIdx === 2 ? '#10b981' : '#38bdf8';
-    ctx.fillRect(modX, modY, 68, 48); ctx.strokeRect(modX, modY, 68, 48);
-
-    ctx.fillStyle = '#fbbf24';
-    ctx.beginPath(); ctx.moveTo(modX + 5, modY + 5); ctx.lineTo(modX + 16, modY + 5); ctx.lineTo(modX + 5, modY + 16); ctx.closePath(); ctx.fill();
-    ctx.beginPath(); ctx.arc(targetX + 34, targetY + 24, 5 + pulse * 4, 0, Math.PI * 2);
-    ctx.strokeStyle = phaseIdx === 2 ? 'rgba(16, 185, 129, 0.7)' : 'rgba(56, 189, 248, 0.7)'; ctx.stroke();
+    if (G.drawStepStage) {
+      G.drawStepStage(ctx, stepId, phaseIdx, localPct, pulse, timeSec);
+    }
 
     ctx.fillStyle = 'rgba(15, 23, 42, 0.94)'; ctx.fillRect(354, 54, w - 366, 104);
     ctx.strokeStyle = phaseIdx === 2 ? '#10b981' : '#c084fc'; ctx.strokeRect(354, 54, w - 366, 104);
@@ -121,7 +107,7 @@
             <div class="custom-video-controls" style="margin: 0.55rem 0;">
               <input type="url" class="field-input custom-video-input" data-custom-video-input="${step.id}" placeholder="Paste YouTube URL or local .mp4 file path..." value="${esc(savedUrl)}" />
               <button type="button" class="btn btn-primary" data-save-video-url="${step.id}" style="padding:0.42rem 0.8rem; font-size:0.78rem;">💾 Save Video Link</button>
-              <a class="btn btn-secondary" data-open-external-video="${step.id}" href="${esc(savedUrl || '#')}" target="_blank" rel="noopener noreferrer" style="padding:0.42rem 0.8rem; font-size:0.78rem; text-decoration:none;">↗ Open Video</a>
+              <a class="btn btn-secondary" data-open-external-video="${step.id}" href="${esc(savedUrl || '#')}" target="_blank" rel="noopener noreferrer" style="padding:0.42rem 0.8rem; font-size:0.78rem; text-decoration:none;">Open on YouTube ↗</a>
             </div>
             <div data-video-embed-slot="${step.id}">${renderMediaEmbedMarkup(savedUrl)}</div>
           </div>

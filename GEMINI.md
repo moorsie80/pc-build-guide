@@ -5,7 +5,7 @@
 - **Local Data Persistence**: Use local storage (e.g., browser `localStorage`, local JSON/files) or **SQLite** for data persistence. Do **not** use external cloud databases.
 
 ## Code Organization & Quality
-- **Modular Files (< 250 Lines)**: Keep all source files modular, single-purpose, and strictly under **250 lines** of code. Split larger modules into well-structured, smaller components or utilities before they exceed this limit.
+- **Modular Files (< 1000 Lines)**: Keep all source files modular, single-purpose, and strictly under **1000 lines** of code. Split larger modules into well-structured, smaller components or utilities before they exceed this limit.
 
 ## Development Workflow
 - **Implementation Plan First**: Always generate and present an **Implementation Plan** before writing or modifying application code.

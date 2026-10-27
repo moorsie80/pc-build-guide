@@ -34,7 +34,7 @@
     'step-2-am5-cpu': {
       durationSec: 90,
       motionSubject: 'AM5 LGA1718 Gold Triangle Alignment & Retention Latch Pop',
-      defaultVideoUrl: 'https://www.youtube.com/watch?v=H2f762fe090',
+      defaultVideoUrl: 'https://www.youtube.com/watch?v=I_jjtYEVXXU',
       coachingNote:
         'AM5 LGA1718 requires firm downward force on the retention arm. The plastic protection cover is designed to pop off automatically as you latch the arm.',
       commonMistake:
@@ -63,7 +63,7 @@
     'step-3-ram-nvme': {
       durationSec: 90,
       motionSubject: 'DIMM_A2 / B2 Dual-Channel Click & M.2_1 Q-Latch Lock',
-      defaultVideoUrl: 'https://www.youtube.com/watch?v=BL4DCEp7blY',
+      defaultVideoUrl: 'https://www.youtube.com/watch?v=cbkyrHaLD0g',
       coachingNote:
         'ASUS TUF B650 slots use single-sided top latches. Align the DDR5 center key notch before pressing straight down.',
       commonMistake:
@@ -92,7 +92,7 @@
     'step-4-arctic-offset': {
       durationSec: 90,
       motionSubject: 'ARCTIC Native AM5 Offset Brackets Over Lower CCD Hotspot',
-      defaultVideoUrl: 'https://www.youtube.com/watch?v=FtJ4P2Uo5no',
+      defaultVideoUrl: 'https://www.youtube.com/watch?v=mi9fJ7c4b1U',
       coachingNote:
         'Ryzen 7000 X3D processors place the 3D V-Cache compute die (CCD) on the lower half of the package. ARCTIC’s offset brackets shift the cold plate center 5mm downward.',
       commonMistake:
@@ -121,7 +121,7 @@
     'step-5-case-fans': {
       durationSec: 90,
       motionSubject: 'ARCTIC P12 PWM PST Exhaust Orientation & PST Daisy-Chain',
-      defaultVideoUrl: 'https://www.youtube.com/watch?v=Hc93U7_7Fdf',
+      defaultVideoUrl: 'https://www.youtube.com/watch?v=6V3If3NpBHM',
       coachingNote:
         'Remember: "Faces suck, backs blow." With exhaust fans at the top and rear, you should see the clean front rotor hub from inside the case.',
       commonMistake:
@@ -179,7 +179,7 @@
     'step-7-psu-cables': {
       durationSec: 90,
       motionSubject: 'Corsair RM850x Type-4 Modular Locking & 24-Pin / EPS Routing',
-      defaultVideoUrl: 'https://www.youtube.com/watch?v=BL4DCEp7blY',
+      defaultVideoUrl: 'https://www.youtube.com/watch?v=0VD6kjU5Sf0',
       coachingNote:
         'Pre-plugging modular cables into the RM850x before sliding it into the bottom shroud is much easier than reaching into a dark tunnel afterward.',
       commonMistake:
@@ -208,7 +208,7 @@
     'step-8-gpu-install': {
       durationSec: 90,
       motionSubject: 'RTX 4070 SUPER PCIe 4.0 x16 Seating & Flush Power Latch',
-      defaultVideoUrl: 'https://www.youtube.com/watch?v=BL4DCEp7blY',
+      defaultVideoUrl: 'https://www.youtube.com/watch?v=nbZO7qcvCB0',
       coachingNote:
         'At 227.2mm long, the ASUS Dual RTX 4070 SUPER EVO OC leaves over 90mm of open breathing room in front of the 65mm-deep ARCTIC radiator.',
       commonMistake:
@@ -237,7 +237,7 @@
     'step-9-peripherals-bios': {
       durationSec: 90,
       motionSubject: 'GPU DisplayPort Connection & ASUS UEFI EXPO + ReBAR Activation',
-      defaultVideoUrl: 'https://www.youtube.com/watch?v=BL4DCEp7blY',
+      defaultVideoUrl: 'https://www.youtube.com/watch?v=qR6r99NdUOo',
       coachingNote:
         'First AM5 DDR5 boot ("Memory Training") takes 45–90 seconds with an amber DRAM LED before the ASUS TUF logo appears—do not panic or power off!',
       commonMistake:

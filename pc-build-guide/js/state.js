@@ -1,6 +1,6 @@
 (function () {
   const G = (window.PCBuildGuide = window.PCBuildGuide || {});
-  const STORAGE_KEY = 'pc_build_locker_v3';
+  const STORAGE_KEY = 'pc_build_locker_v4';
 
   function formatPriceString(val) {
     if (val === undefined || val === null || val === '') return '';
@@ -49,7 +49,15 @@
       completedSteps: {},
       sanityChecks: {},
       customVideos: {
-        'step-6-aio-front': 'https://www.youtube.com/watch?v=FtJ4P2Uo5no'
+        'step-1-prep': 'https://www.youtube.com/watch?v=rj0zYt8YwzE',
+        'step-2-am5-cpu': 'https://www.youtube.com/watch?v=I_jjtYEVXXU',
+        'step-3-ram-nvme': 'https://www.youtube.com/watch?v=cbkyrHaLD0g',
+        'step-4-arctic-offset': 'https://www.youtube.com/watch?v=mi9fJ7c4b1U',
+        'step-5-case-fans': 'https://www.youtube.com/watch?v=6V3If3NpBHM',
+        'step-6-aio-front': 'https://www.youtube.com/watch?v=FtJ4P2Uo5no',
+        'step-7-psu-cables': 'https://www.youtube.com/watch?v=0VD6kjU5Sf0',
+        'step-8-gpu-install': 'https://www.youtube.com/watch?v=nbZO7qcvCB0',
+        'step-9-peripherals-bios': 'https://www.youtube.com/watch?v=qR6r99NdUOo'
       },
       guideGenerated: false,
       lastUpdated: null
@@ -109,7 +117,7 @@
       base.completedSteps = parsed.completedSteps || {};
       base.sanityChecks = parsed.sanityChecks || {};
       base.customVideos = {
-        'step-6-aio-front': 'https://www.youtube.com/watch?v=FtJ4P2Uo5no',
+        ...base.customVideos,
         ...(parsed.customVideos || {})
       };
       base.guideGenerated = Boolean(parsed.guideGenerated);
