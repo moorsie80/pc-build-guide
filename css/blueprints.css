@@ -1,0 +1,211 @@
+/* Interactive SVG Blueprints (Phase 2) */
+.blueprint-card {
+  background: #080c15;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  transition: all 0.22s ease;
+  box-shadow: inset 0 0 24px rgba(56, 189, 248, 0.05);
+}
+
+.blueprint-card.is-expanded {
+  grid-column: 1 / -1;
+  border-color: var(--accent-cyan);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.65), 0 0 20px rgba(56, 189, 248, 0.18);
+}
+
+.blueprint-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.55rem 0.85rem;
+  background: rgba(17, 24, 39, 0.9);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.blueprint-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.blueprint-code {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.14);
+  padding: 0.15rem 0.48rem;
+  border-radius: 4px;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.blueprint-title-text {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.blueprint-zoom-btn {
+  background: var(--bg-elevated);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 5px;
+  padding: 0.22rem 0.58rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.blueprint-zoom-btn:hover {
+  background: var(--accent-cyan);
+  color: #060911;
+}
+
+.blueprint-canvas-wrap {
+  position: relative;
+  width: 100%;
+  background-color: #070b13;
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  padding: 0.5rem;
+}
+
+.blueprint-svg {
+  width: 100%;
+  height: 215px;
+  display: block;
+  transition: height 0.22s ease;
+}
+
+.blueprint-card.is-expanded .blueprint-svg {
+  height: 360px;
+}
+
+/* SVG Hotspot Callout Nodes */
+.bp-hotspot {
+  cursor: pointer;
+  outline: none;
+}
+
+.bp-hotspot-ring {
+  fill: rgba(56, 189, 248, 0.18);
+  stroke: #38bdf8;
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bpPulse 2.2s infinite ease-in-out;
+}
+
+.bp-hotspot.amber .bp-hotspot-ring {
+  fill: rgba(251, 191, 36, 0.2);
+  stroke: #fbbf24;
+}
+
+.bp-hotspot-core {
+  fill: #38bdf8;
+  stroke: #090d16;
+  stroke-width: 1.5;
+  transition: transform 0.15s ease, fill 0.15s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.bp-hotspot.amber .bp-hotspot-core {
+  fill: #fbbf24;
+}
+
+.bp-hotspot:hover .bp-hotspot-core,
+.bp-hotspot.is-active .bp-hotspot-core {
+  transform: scale(1.3);
+  fill: #34d399;
+}
+
+.bp-hotspot.is-active .bp-hotspot-ring {
+  stroke: #34d399;
+  stroke-width: 2.5;
+}
+
+.bp-hotspot-num {
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 9px;
+  font-weight: 700;
+  fill: #05080f;
+  pointer-events: none;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+/* Animated Airflow & Signal Lines */
+.bp-flow-intake {
+  stroke: #38bdf8;
+  stroke-width: 2.5;
+  stroke-dasharray: 6 5;
+  animation: bpDashFlow 1.1s linear infinite;
+}
+
+.bp-flow-exhaust {
+  stroke: #f97316;
+  stroke-width: 2.5;
+  stroke-dasharray: 6 5;
+  animation: bpDashFlow 0.95s linear infinite;
+}
+
+@keyframes bpPulse {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50% { transform: scale(1.45); opacity: 0.28; }
+}
+
+@keyframes bpDashFlow {
+  to { stroke-dashoffset: -22; }
+}
+
+/* Hotspot Inspection Readout Footer */
+.blueprint-inspector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 0.65rem 0.85rem;
+  background: #0c1322;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.hotspot-pills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.hotspot-chip {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.hotspot-chip:hover,
+.hotspot-chip.is-active {
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
+  background: rgba(56, 189, 248, 0.12);
+}
+
+.inspector-detail-text {
+  font-size: 0.78rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.inspector-detail-text strong {
+  color: var(--accent-cyan);
+}

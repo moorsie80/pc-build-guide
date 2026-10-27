@@ -132,13 +132,7 @@
             <div><strong>Hardware-Specific Warning:</strong> ${escapeHtml(step.warning)}</div>
           </div>
           <div class="phase-placeholders-grid">
-            <div class="placeholder-slot svg-slot" data-phase="2" data-step="${step.id}">
-              <div class="slot-badge-row">
-                <span class="slot-pill phase-2-pill">Phase 2 · Interactive SVG Blueprint</span>
-                <span class="slot-part-tag">${escapeHtml(step.svgBlueprint.code)}</span>
-              </div>
-              <p class="slot-topic">${escapeHtml(step.svgBlueprint.title)}</p>
-            </div>
+            ${G.renderBlueprintSlot(step, appState)}
             <details class="video-tip-drawer" data-phase="3" data-step="${step.id}">
               <summary class="video-tip-summary">
                 <span><span class="slot-pill phase-3-pill" style="margin-right:0.45rem;">Phase 3</span>🎬 Watch Video Tip: ${escapeHtml(step.videoTip.title)}</span>
@@ -193,6 +187,7 @@
       target.closest('.guide-step-card')?.classList.toggle('is-completed', target.checked);
       updateGuideProgress(G.buildGuideSteps(appState));
     });
+    G.bindBlueprintEvents(guideStepsEl);
 
     document.getElementById('btn-open-json').addEventListener('click', () => {
       jsonTextareaEl.value = JSON.stringify(G.exportRigJsonObject(appState), null, 2);
